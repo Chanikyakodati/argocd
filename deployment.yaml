@@ -18,7 +18,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: kodatichanikya/images:app-5
+      - image: nginx:1.14.2
         name: flaskdemo
         resources: {}
 status: {}
