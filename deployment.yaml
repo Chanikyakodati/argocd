@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: flaskdemo
-  name: flaskdemo
+    app: mynginxapp
+  name: mynginxapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flaskdemo
+      app: mynginxapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: mynginxapp
     spec:
       containers:
       - image: kodatichanikya/myubuntuimage:v1
-        name: flaskdemo
+        name: mynginxapp
         resources: {}
 status: {}
 ---
@@ -36,4 +36,4 @@ spec:
     port: 80
     targetPort: 5000
   selector:
-    app: flaskdemo
+    app: mynginxapp
