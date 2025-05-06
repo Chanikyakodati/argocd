@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: pythonapp
-  name: pythonapp
+    app: mypythonappaws
+  name: mypythonappaws
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pythonapp
+      app: mypythonappaws
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: pythonapp
+        app: mypythonappaws
     spec:
       containers:
-      - image: python:latest
-        name: pythonapp
+      - image: kodatichanikya/mypythonappaws:v1
+        name: mypythonappaws
         resources: {}
 status: {}
 ---
@@ -36,4 +36,4 @@ spec:
     port: 80
     targetPort: 5000
   selector:
-    app: pythonapp
+    app: mypythonappaws
