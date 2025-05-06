@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: mynginxapp
-  name: mynginxapp
+    app: pythonapp
+  name: pythonapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mynginxapp
+      app: pythonapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: mynginxapp
+        app: pythonapp
     spec:
       containers:
-      - image: kodatichanikya/myubuntuimage:v1
-        name: mynginxapp
+      - image: python:latest
+        name: pythonapp
         resources: {}
 status: {}
 ---
@@ -36,4 +36,4 @@ spec:
     port: 80
     targetPort: 5000
   selector:
-    app: mynginxapp
+    app: pythonapp
