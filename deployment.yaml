@@ -18,7 +18,7 @@ spec:
         app: mypythonappaws
     spec:
       containers:
-      - image: kodatichanikya/mypythonappaws:v1
+      - image: kodatichanikya/pythonapp:v1
         name: mypythonappaws
         resources: {}
 status: {}
