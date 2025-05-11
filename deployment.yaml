@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: pythonappargo11
-  name: pythonappargo11
+    app: phpapp
+  name: phpapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pythonappargo11
+      app: phpapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: pythonappargo11
+        app: phpapp
     spec:
       containers:
-      - image: python:3.10.17-alpine3.21
-        name: pythonappargo11
+      - image: php:8.3.21-zts-alpine3.20
+        name: phpapp
         resources: {}
 status: {}
 ---
@@ -36,4 +36,4 @@ spec:
     port: 80
     targetPort: 5000
   selector:
-    app: pythonappargo11
+    app: phpapp
