@@ -18,7 +18,7 @@ spec:
         app: pythonappargo11
     spec:
       containers:
-      - image: kodatichanikya/pythonapp11may:v1
+      - image: kodatichanikya/pythonapp11may:v2
         name: pythonappargo11
         resources: {}
 status: {}
