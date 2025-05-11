@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: mypythonappaws
-  name: mypythonappaws
+    app: guestbookapp
+  name: guestbookapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mypythonappaws
+      app: guestbookapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: mypythonappaws
+        app: guestbookapp
     spec:
       containers:
-      - image: kodatichanikya/pythonapp:v1
-        name: mypythonappaws
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: guestbookapp
         resources: {}
 status: {}
 ---
@@ -36,4 +36,4 @@ spec:
     port: 80
     targetPort: 5000
   selector:
-    app: mypythonappaws
+    app: guestbookapp
