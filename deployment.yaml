@@ -1,39 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: phpapp
-  name: phpapp
+  name: guestbook-ui
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: phpapp
-  strategy: {}
+      app: guestbook-ui
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: phpapp
+        app: guestbook-ui
     spec:
       containers:
-      - image: php:8.3.21-zts-alpine3.20
-        name: phpapp
-        resources: {}
-status: {}
+      - image: quay.io/argoprojlabs/argocd-e2e-container:0.2
+        name: guestbook-ui
+        ports:
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-service
-  labels:
-    app: flask-service
+  name: guestbook-ui
 spec:
-  type: NodePort
   ports:
-  - nodePort: 30001
-    port: 80
-    targetPort: 5000
+  - port: 80
+    targetPort: 80
   selector:
-    app: phpapp
+    app: guestbook-ui
